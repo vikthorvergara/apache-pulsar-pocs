@@ -30,7 +30,8 @@
 
         <dependency>
             <groupId>org.springframework.pulsar</groupId>
-            <artifactId>spring-pulsar-spring-boot-starter</artifactId>
+            <artifactId>spring-pulsar</artifactId>
+            <version>${spring-pulsar.version}</version>
         </dependency>
     </dependencies>
 

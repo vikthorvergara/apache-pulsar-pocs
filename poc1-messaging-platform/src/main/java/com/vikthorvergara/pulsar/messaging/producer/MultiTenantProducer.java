@@ -36,7 +36,7 @@ public class MultiTenantProducer implements CommandLineRunner {
     }
 
     private void publishHealthcareEvents() {
-        ScopedValue.runWhere(TENANT_ID, "healthcare", () -> {
+        ScopedValue.where(TENANT_ID, "healthcare").run(() -> {
             for (int i = 1; i <= 5; i++) {
                 var event = new TenantEvent(
                     getTenantId(),
@@ -50,7 +50,7 @@ public class MultiTenantProducer implements CommandLineRunner {
     }
 
     private void publishFinanceEvents() {
-        ScopedValue.runWhere(TENANT_ID, "finance", () -> {
+        ScopedValue.where(TENANT_ID, "finance").run(() -> {
             for (int i = 1; i <= 5; i++) {
                 var event = new TenantEvent(
                     getTenantId(),
@@ -64,7 +64,7 @@ public class MultiTenantProducer implements CommandLineRunner {
     }
 
     private void publishRetailEvents() {
-        ScopedValue.runWhere(TENANT_ID, "retail", () -> {
+        ScopedValue.where(TENANT_ID, "retail").run(() -> {
             for (int i = 1; i <= 5; i++) {
                 var event = new TenantEvent(
                     getTenantId(),

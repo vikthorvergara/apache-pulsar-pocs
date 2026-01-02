@@ -12,6 +12,6 @@ import org.springframework.pulsar.annotation.EnablePulsar;
 public class MessagingPlatformApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MessagingPlatformApplication.java, args);
+        SpringApplication.run(MessagingPlatformApplication.class, args);
     }
 }
