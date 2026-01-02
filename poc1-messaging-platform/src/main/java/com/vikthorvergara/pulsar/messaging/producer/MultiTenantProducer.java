@@ -15,9 +15,9 @@ public class MultiTenantProducer implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(MultiTenantProducer.class);
     private static final ScopedValue<String> TENANT_ID = ScopedValue.newInstance();
 
-    private final PulsarTemplate<TenantEvent> pulsarTemplate;
+    private final PulsarTemplate pulsarTemplate;
 
-    public MultiTenantProducer(PulsarTemplate<TenantEvent> pulsarTemplate) {
+    public MultiTenantProducer(PulsarTemplate pulsarTemplate) {
         this.pulsarTemplate = pulsarTemplate;
     }
 

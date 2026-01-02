@@ -23,9 +23,9 @@
     <modules>
         <module>poc-common</module>
         <module>poc1-messaging-platform</module>
-        <module>poc2-task-queues</module>
-        <module>poc3-rpc</module>
-        <module>poc4-mission-critical</module>
+        <!-- <module>poc2-task-queues</module> -->
+        <!-- <module>poc3-rpc</module> -->
+        <!-- <module>poc4-mission-critical</module> -->
     </modules>
 
     <properties>
@@ -35,7 +35,7 @@
         <maven.compiler.release>25</maven.compiler.release>
         <maven.compiler.enablePreview>true</maven.compiler.enablePreview>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-pulsar.version>2.0.0</spring-pulsar.version>
+        <spring-pulsar.version>2.0.1</spring-pulsar.version>
         <pulsar-client.version>4.0.0</pulsar-client.version>
     </properties>
 

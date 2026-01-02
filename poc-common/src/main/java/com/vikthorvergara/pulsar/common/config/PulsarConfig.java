@@ -21,7 +21,7 @@ import java.util.Collections;
 public class PulsarConfig {
 
     @Bean
-    public PulsarClient pulsarClient(@Value("${spring.pulsar.client.service-url}") String serviceUrl) 
+    public PulsarClient pulsarClient(@Value("${spring.pulsar.client.service-url}") String serviceUrl)
             throws PulsarClientException {
         return PulsarClient.builder()
                 .serviceUrl(serviceUrl)
@@ -29,23 +29,23 @@ public class PulsarConfig {
     }
 
     @Bean
-    public PulsarProducerFactory<?> pulsarProducerFactory(PulsarClient pulsarClient) {
+    public PulsarProducerFactory pulsarProducerFactory(PulsarClient pulsarClient) {
         return new DefaultPulsarProducerFactory<>(pulsarClient);
     }
 
     @Bean
-    public PulsarTemplate<?> pulsarTemplate(PulsarProducerFactory<?> pulsarProducerFactory) {
+    public PulsarTemplate pulsarTemplate(PulsarProducerFactory pulsarProducerFactory) {
         return new PulsarTemplate<>(pulsarProducerFactory);
     }
 
     @Bean
-    public PulsarConsumerFactory<?> pulsarConsumerFactory(PulsarClient pulsarClient) {
+    public PulsarConsumerFactory pulsarConsumerFactory(PulsarClient pulsarClient) {
         return new DefaultPulsarConsumerFactory<>(pulsarClient, Collections.emptyList());
     }
 
     @Bean
-    public ConcurrentPulsarListenerContainerFactory<?> pulsarListenerContainerFactory(
-            PulsarConsumerFactory<?> pulsarConsumerFactory) {
+    public ConcurrentPulsarListenerContainerFactory pulsarListenerContainerFactory(
+            PulsarConsumerFactory pulsarConsumerFactory) {
         PulsarContainerProperties containerProperties = new PulsarContainerProperties();
         return new ConcurrentPulsarListenerContainerFactory<>(pulsarConsumerFactory, containerProperties);
     }
