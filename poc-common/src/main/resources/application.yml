@@ -1,0 +1,25 @@
+spring:
+  pulsar:
+    client:
+      service-url: pulsar://localhost:6650
+    producer:
+      producer-name: ${spring.application.name}-producer
+      send-timeout: 30s
+    consumer:
+      subscription:
+        type: shared
+      consumer-name: ${spring.application.name}-consumer
+    listener:
+      schema-type: json
+
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  level:
+    org.apache.pulsar: INFO
+    org.springframework.pulsar: DEBUG
+    com.vikthorvergara: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

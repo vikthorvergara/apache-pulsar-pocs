@@ -1,0 +1,28 @@
+services:
+  pulsar:
+    image: apachepulsar/pulsar:4.0.0
+    container_name: pulsar
+    command: bin/pulsar standalone
+    ports:
+      - "6650:6650"
+      - "8080:8080"
+    environment:
+      - PULSAR_MEM=-Xms512m -Xmx512m -XX:MaxDirectMemorySize=1g
+    volumes:
+      - pulsar-data:/pulsar/data
+    healthcheck:
+      test: ["CMD", "bin/pulsar-admin", "brokers", "healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - pulsar-network
+
+volumes:
+  pulsar-data:
+    driver: local
+
+networks:
+  pulsar-network:
+    driver: bridge
