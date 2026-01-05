@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: poc4-mission-critical
+
+  pulsar:
+    client:
+      service-url: pulsar://localhost:6650
+    producer:
+      producer-name: ${spring.application.name}-producer
+      send-timeout: 30s
+    consumer:
+      subscription:
+        type: failover
+    listener:
+      schema-type: json
+
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8084
+
+logging:
+  level:
+    com.vikthorvergara.pulsar.missioncritical: DEBUG
+    org.springframework.pulsar: INFO
+    org.apache.pulsar: WARN
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%-15.15t] %-5level %-40.40logger{39} : %msg%n"

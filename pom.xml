@@ -25,7 +25,7 @@
         <module>poc1-messaging-platform</module>
         <module>poc2-task-queues</module>
         <module>poc3-rpc</module>
-        <!-- <module>poc4-mission-critical</module> -->
+        <module>poc4-mission-critical</module>
     </modules>
 
     <properties>
